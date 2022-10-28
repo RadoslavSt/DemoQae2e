@@ -20,22 +20,17 @@ describe("DemoQA app - Elements test", () => {
     });
   });
 
-  it('Click on YES and impressive', ()=>{
+  it("Click on YES and impressive", () => {
+    cy.get(".custom-control-label").then((radioDugmadi) => {
+      cy.wrap(radioDugmadi).first().click();
+      cy.get(".text-success").should("be.visible").and("have.text", "Yes");
 
-    cy.get('.custom-control-label').then((radioDugmadi)=>{
-        cy.wrap(radioDugmadi).first().click()
-        cy.get('.text-success').should('be.visible').and('have.text','Yes')
+      cy.wrap(radioDugmadi).eq(1).click();
+      cy.get(".text-success")
+        .should("be.visible")
+        .and("have.text", "Impressive");
 
-        cy.wrap(radioDugmadi).eq(1).click()
-        cy.get('.text-success').should('be.visible').and('have.text','Impressive')
-
-        cy.wrap(radioDugmadi).eq(2).click().should('not.be.enabled')
-    })
-
-
-    
-
-
-
-  })
+      cy.wrap(radioDugmadi).eq(2).click().should("not.be.enabled");
+    });
+  });
 });

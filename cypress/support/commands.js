@@ -76,3 +76,18 @@ Cypress.Commands.add("CheckBoxes", () => {
       .should("have.class", "rct-icon rct-icon-check");
   });
 });
+
+Cypress.Commands.add('registrationForm', ()=>{
+  const result = Math.random().toString(36).substring(2, 7);
+      console.log(result);
+      cy.get('#firstName').clear().type("Petar")
+      cy.get('#lastName').clear().type('Petrovic')
+      cy.get('#userEmail').clear().type('bob@gmail.com')
+      cy.get('#age').clear().type('33')
+      cy.get('#salary').clear().type('15000')
+      cy.get('#department').clear().type('Compliance')
+      cy.contains('Submit').click()
+
+
+})
+
