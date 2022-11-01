@@ -1,5 +1,7 @@
 ///<reference types = 'cypress'/>
 
+
+
 describe("DemoQA app - Elements test", () => {
   before("Elements", () => {
     Cypress.on("uncaught:exception", (err, runnable) => {
@@ -43,7 +45,7 @@ describe("DemoQA app - Elements test", () => {
     });
   });
 
-  it("Add new Row", () => {
+  it.only("Add new Row", () => {
     Cypress.on("uncaught:exception", (err, runnable) => {
       return false;
     });
@@ -55,7 +57,7 @@ describe("DemoQA app - Elements test", () => {
     });
   });
 
-  it("Delete the latest row", () => {
+  it.only("Delete the latest row", () => {
     cy.viewport(1900, 1200);
     cy.get(".rt-tr-group").each((Row) => {
       console.log(Row);
@@ -63,16 +65,14 @@ describe("DemoQA app - Elements test", () => {
     });
     cy.get(".rt-tr-group").then((LastRow) => {
       cy.wrap(LastRow[3].innerText).text;
-      
     });
-    cy.wait(1000)
-    cy.get('[title="Delete"]').then((DElete)=>{
-      cy.wrap(DElete).last().click()
-      
-    })
+    cy.wait(1000);
+    cy.get('[title="Delete"]').then((DElete) => {
+      cy.wrap(DElete).last().click();
+    });
     cy.get(".rt-tr-group").then((LastRow) => {
-      cy.wrap(LastRow[3]).should('not.have.value')
-      
+      cy.wrap(LastRow[3]).should("not.have.value", "Petar");
     });
   });
+
 });

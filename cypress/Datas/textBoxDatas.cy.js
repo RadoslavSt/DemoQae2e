@@ -18,3 +18,7 @@ export class TypeDatas {
     cy.get(this.TBpermanentAd).type(perAddress);
   }
 }
+
+// enterUsername(fullname) {
+//   cy.get('#username').type(fullname)
+// }
