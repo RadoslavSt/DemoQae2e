@@ -77,21 +77,19 @@ Cypress.Commands.add("CheckBoxes", () => {
   });
 });
 
-Cypress.Commands.add('registrationForm', ()=>{
+Cypress.Commands.add("registrationForm", () => {
   const result = Math.random().toString(36).substring(2, 7);
-      console.log(result);
-      cy.get('#firstName').clear().type("Petar")
-      cy.get('#lastName').clear().type('Petrovic')
-      cy.get('#userEmail').clear().type('bob@gmail.com')
-      cy.get('#age').clear().type('33')
-      cy.get('#salary').clear().type('15000')
-      cy.get('#department').clear().type('Compliance')
-      cy.contains('Submit').click()
+  console.log(result);
+  cy.get("#firstName").clear().type("Petar");
+  cy.get("#lastName").clear().type("Petrovic");
+  cy.get("#userEmail").clear().type("bob@gmail.com");
+  cy.get("#age").clear().type("33");
+  cy.get("#salary").clear().type("15000");
+  cy.get("#department").clear().type("Compliance");
+  cy.contains("Submit").click();
+});
 
-
-})
-
-Cypress.Commands.add('alerts', ()=>{
+Cypress.Commands.add("alerts", () => {
   cy.visit("https://demoqa.com/");
   cy.viewport(1920, 1200);
 
@@ -106,11 +104,5 @@ Cypress.Commands.add('alerts', ()=>{
     "Book Store Application",
   ];
   Validatecards(cy.get(".card"), cardsName);
-  cy.contains('Alerts, Frame & Windows').click()
-
-
-
-
-
-})
-
+  cy.contains("Alerts, Frame & Windows").click();
+});

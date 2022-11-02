@@ -45,7 +45,7 @@ describe("DemoQA app - Elements test", () => {
     });
   });
 
-  it.only("Add new Row", () => {
+  it("Add new Row", () => {
     Cypress.on("uncaught:exception", (err, runnable) => {
       return false;
     });
@@ -57,7 +57,7 @@ describe("DemoQA app - Elements test", () => {
     });
   });
 
-  it.only("Delete the latest row", () => {
+  it("Delete the latest row", () => {
     cy.viewport(1900, 1200);
     cy.get(".rt-tr-group").each((Row) => {
       console.log(Row);
