@@ -91,3 +91,26 @@ Cypress.Commands.add('registrationForm', ()=>{
 
 })
 
+Cypress.Commands.add('alerts', ()=>{
+  cy.visit("https://demoqa.com/");
+  cy.viewport(1920, 1200);
+
+  cy.get(".card").should("have.length", 6);
+
+  const cardsName = [
+    "Elements",
+    "Forms",
+    "Alerts, Frame & Windows",
+    "Widgets",
+    "Interactions",
+    "Book Store Application",
+  ];
+  Validatecards(cy.get(".card"), cardsName);
+  cy.contains('Alerts, Frame & Windows').click()
+
+
+
+
+
+})
+
